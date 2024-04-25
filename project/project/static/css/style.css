@@ -1,0 +1,8 @@
+.error_message{
+    border: 1px solid darkred; background-color: salmon; color: darkred;
+}
+
+.success_message{
+    border: 1px solid green; background-color: rgb(112, 230, 112); color: rgb(0, 124, 0);
+}
+

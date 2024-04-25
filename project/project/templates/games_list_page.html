@@ -1,0 +1,15 @@
+{% load static %}
+{% load chunks_filter %}
+<div class='small-container'>
+    <div class='row row2 '> 
+        {% for games_chunks in games|chunks[:4] %}
+            <div class="row">
+                {% for game in games_chunks %}          
+                    <div class="col-4">  
+                        <a href="{% url 'games' game.id %}"><img src="{{ game.img.url }}"></a>
+                    </div> 
+                {% endfor %}
+            </div>   
+        {% endfor %}
+    </div>
+</div>

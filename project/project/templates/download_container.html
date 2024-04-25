@@ -1,0 +1,45 @@
+     {% comment %} {% load static %}
+    <h1 style="color:green"> Your Librery</h1>
+    <div class="small-container game-page " >
+        <table>
+            <tbody><tr>
+            <th>N0:</th>   
+            <th>games</th>
+            <th>category</th>
+            <th>rate</th>
+        </tr>
+    <tr>
+        <td><input type="number" value="1" ></td>
+        <td>
+            <div class="game-info">
+                <img src="{% static 'images/car/ca1.jpg' %}" alt="" style="width:140px ; height: 70;">  
+        </td>
+        <td> <i>Racing 3D</i> </td>
+        A<td> <i>4.2</i> </td>     
+    </tr>
+    </tbody></table>
+    </div> {% endcomment %}
+
+
+{% load static %}
+<div class="small-container single-game">
+    <div class='row'>
+        <div class='col-2'>
+            <h2>Your Download History</h2>
+            {% for item in Downloaded_Items %}
+                <div>
+                    <img src="{% static 'game.img.url' %}" alt="Image"> 
+                    <p>{{ item.game.name }} - Quantity: {{ item.quantity }}</p>
+                    <p>{{ item.game.category }} - Quantity: {{ item.quantity }}</p>
+                    <p>{{ item.game.rate }} - Quantity: {{ item.quantity }}</p>
+
+                    
+                </div>
+            {% empty %}
+                <p>No download history found.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
