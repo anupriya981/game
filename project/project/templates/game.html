@@ -1,10 +1,3 @@
-
-{% comment %} 
-{% block content %}
-<P>all games</P>
-{% include 'games_list_page.html' %}
-
-{% endblock content %}  {% endcomment %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -19,16 +12,10 @@
     <div class="container-fluid">
         <div class='row'>
             <div class='col'>
-
-                {% block content %}
-                  <h6 style="color:rgb(38, 38, 73);"><h1 style="color:rgb(155, 221, 160); text-align:center ">All Games...</h1><h6>
-                {% include 'banner_layout.html' %}
-
-                {% endblock content %}  
+                <img src="{{ game.img.url }}" width='100%' id='gameImg'>
             </div>
             
         </div>
     </div>
 </body>
 </html>
-

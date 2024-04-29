@@ -1,51 +1,6 @@
-{% comment %} 
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fetch Game Data</title>
-</head>
-<body>
-    <div>
-        <label for="game_id">Enter Game ID:</label>
-        <input type="text" id="game_id">
-        <button onclick="fetchGameData()">Fetch Data</button>
-    </div>
-    <div id="result"></div>
 
-    <script>
-        function fetchGameData() {
-            var gameId = document.getElementById('game_id').value;
+{% block content %}
 
-            // Make an AJAX request to fetch data from the backend
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    var data = JSON.parse(xhr.responseText);
-                    displayGameData(data);
-                }
-            };
-            xhr.open('GET', '/api/games/' + gameId + '/', true);
-            xhr.send();
-        }
+{% include 'games_description_car.html' %}
 
-        function displayGameData(data) {
-            var resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = ''; // Clear previous result
-            if (data.error) {
-                resultDiv.textContent = 'Error: ' + data.error;
-            } else {
-                // Display game data
-                resultDiv.innerHTML = '<h3>Game Data</h3>';
-                resultDiv.innerHTML += '<p>ID: ' + data.id + '</p>';
-                resultDiv.innerHTML += '<p>Name: ' + data.name + '</p>';
-                resultDiv.innerHTML += '<p>img: ' + data.img + '</p>';
-                resultDiv.innerHTML += '<p>category: ' + data.category + '</p>';
-                // Add other game attributes as needed
-            }
-        }
-    </script>
-</body>
-</html> {% endcomment %}
+{% endblock content %}

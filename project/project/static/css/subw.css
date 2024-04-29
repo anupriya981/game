@@ -1,0 +1,16 @@
+div.fixed1 {
+    box-sizing: border-box;
+                  width: 40%;
+                  height: 500px;
+                  float: left;
+                  padding: 0px;
+                  border: 1px ;
+                }
+    div.fixed2 {          
+                box-sizing: border-box;
+                width: 60%;
+                height: 500px;
+                float: left;
+                padding: 0px;
+                border: 1px ;
+              }

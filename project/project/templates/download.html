@@ -1,9 +1,9 @@
-{% load static %}
+m {% load static %}
 {% for game in games %}
 <div>
     <h3>{{ game.name }}</h3>
-    <img src="{games.img}}">
-    <p>category:{{ games.category }}</p>
+    <img src="{game.img}}">
+    <p>category:{{ game.category }}</p>
     <a href="{% urls 'download' games_id %}">download</a>
 </div>
 {% endfor %}

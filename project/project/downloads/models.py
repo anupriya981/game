@@ -23,14 +23,7 @@ class history(models.Model):
 
     #model for downloded items
 class Downloaded_Items(models.Model):
+    games=models.ForeignKey(games,related_name='downloaded_history',on_delete=models.SET_NULL,null=True)
     quantity=models.IntegerField(default=1)
-    games=models.ForeignKey(games,related_name='downloaded_history',on_delete=models.SET_NULL,null=True,)
-
-    game=models.CharField(max_length=250)
-    img=models.ImageField(upload_to='media/')
-    category=models.CharField(max_length=20)
-    rate=models.FloatField()
-    priority=models.IntegerField(default=0)
-
     owner=models.ForeignKey(history,on_delete=models.CASCADE,related_name='downloaded_items')
 
