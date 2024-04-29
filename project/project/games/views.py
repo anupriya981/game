@@ -35,6 +35,18 @@ def description_cand(request):
 def description_sub(request):
     return render(request, 'game_des_sub.html')
 
+def description_ludo(request):
+    return render(request, 'game_des_ludo.html')
+
+def description_mario(request):
+    return render(request, 'game_des_mario.html')
+
+def description_motor(request):
+    return render(request, 'game_des_motor.html')
+
+def description_gtav(request):
+    return render(request, 'game_des_gta.html')
+
 def game_list(request):
     return render(request, 'games_list_page.html')
 
