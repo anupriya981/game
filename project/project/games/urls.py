@@ -4,6 +4,12 @@ from django.urls import path
 from django.conf.urls.static import static
 from . import views
 urlpatterns = [
+    path('',views.Home,name='first'),
+
+
+
+
+    
     path('',views.index,name='home'),
     # path('list_game/<int:p>', views.list_games, name='games'),
     # path('list_game/<int:p>/', views.game_list, name='list_game')

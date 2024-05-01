@@ -1,4 +1,4 @@
-{% load static %}
+  {% load static %}
 
 <div class="container-fluid pt-3 my-3">
     <div class="row">
@@ -7,7 +7,7 @@
                 <div class="col pt-3 my-3 ">
                     <img src="{% static 'images/car/ca1.jpg'  %}" alt="" style="width:140px ; height: 70;">
                     <h4 class='text-dark' > <a
-                    href="{% url 'games_description_car' %}"><i style="color: black ">City Racing 3D</i></a></h4>
+                    href="{% url 'games_description_car'  %}"><i style="color: black ">City Racing 3D</i></a></h4>
                     <small>
                         3D game.Racing.<br>Car race.online.casual 4.2
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
@@ -17,9 +17,9 @@
                 
                 <div class="col">
                     {% comment %} <img src="{% static 'images/ %}angry_birds/AB1.jpg" alt="" style="width:250px ;"> {% endcomment %}
-                    <img src="{% static 'images/angry_birds/AB1.jpg' %}" alt="" style="width:250px ;">
+                    <img src="{% static 'images/angry_birds/AB1.jpg' game.pk %}" alt="" style="width:250px ;">
                     <h4 class='text-dark' > <a
-                        href="{% url 'game_descr_bird' %}"><i style="color: black ">Angry Birds</i></a></h4>
+                        href="{% url 'game_descr_bird'  %}"><i style="color: black ">Angry Birds</i></a></h4>
 
                     <small>Rovio Entertainment Corporation
                         .puzzle.casual.ofline 4.2

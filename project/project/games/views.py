@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from . models import games
 
+def Home(request):
+    return render(request, 'home.html')
+
 def index(request):
     # Some processing
     # feature_product=games.objects.order_by('priority') 
@@ -18,8 +21,10 @@ def list_games(request,p):
     context={"games": games_list}
     return render(request, 'games.html',context)
 
-def detail_games(request): 
-    return render(request, 'games.html')
+def detail_games(request,p): 
+    game=games.objects.order_by('priority')
+    context={'games':game}
+    return render(request, 'games_details.html')
 
 def description(request):
     return render(request, 'games_description_car.html')
