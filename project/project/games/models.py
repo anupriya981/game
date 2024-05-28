@@ -9,11 +9,14 @@ class games(models.Model):
     DELETE=0
     DELETE_CHOICES=((LIVE,'live'),(DELETE,'delete'))
     game=models.CharField(max_length=250)
+    category=models.CharField(max_length=250)
     date=models.IntegerField()
     description=models.TextField()
     img=models.ImageField(upload_to='media/')
+    bg_img=models.ImageField(upload_to='media/bg')
+    sub_img=models.ImageField(upload_to='media/sub')
     priority=models.IntegerField(default=0)
-
+    
     delete_status=models.IntegerField(choices=DELETE_CHOICES,default=LIVE)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)

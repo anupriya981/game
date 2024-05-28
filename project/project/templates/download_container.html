@@ -1,20 +1,28 @@
 {% load static %}
-<div class="small-container single-game">
-    <div class='row'>
-        <div class='col-2'>
-            <h2>Your Download History</h2>
-            {% for item in Downloaded_Items %}
+<h1 style="color:green"> Your Librery</h1>
+<div class="small-container game-page " >
+        <div class="row">
+            <div class="col">
+    <table>
+        <tbody><tr>
+        <th></th>
+        <th></th>    
+    </tr>
+    {% for item in downloaded %}
+    <tr>
+        <td>         
+            <div class="game-info">
+                <img src="{{ item.games_id.img.url }}" alt="" style="width:140px; height: 70;"> 
                 <div>
-                    <img src="{% static 'game.img' %}" alt="Image"> 
-                    <p>{{ item.game.name }} - Quantity: {{ item.quantity }}</p>
-                    <p>{{ item.game.category }} - Quantity: {{ item.quantity }}</p>
-                    <p>{{ item.game.rate }} - Quantity: {{ item.quantity }}</p>
-
-                    
+                    <p>{{ item.games_id.game }}</p>
+                    <p>{{ item.games_id.category }}</p>  
                 </div>
-            {% empty %}
-                <p>No download history found.</p>
-            {% endfor %}
-        </div>
-    </div>
+            </div>
+        </td>
+        <td><input type="number" disabled value="{{ downloaded_item.games_id.quantity }}" ></td>
+    </tr>
+    {% endfor %}
+</tbody></table>
+</div>            </div>   
+</div>
 </div>

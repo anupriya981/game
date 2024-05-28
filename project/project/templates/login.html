@@ -13,8 +13,6 @@
  <form id='LoginForm' method="post" enctype="multipart/form-data" >
   {% csrf_token %}
   <section class="vh-100 bg-image"  style="background-image: url('{% static 'images/game.jpg' %}');height: 500px;"> 
-
-
   {% if messages %}
     <div class="message-container">
       {% for message in messages %}
@@ -22,10 +20,6 @@
       {% endfor %}
     </div>
   {% endif %}
-
-
-
-
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
           <div class="card shadow-2-strong" style="border-radius: 1rem;">
@@ -48,6 +42,11 @@
                 <input class="form-check-input" type="checkbox" value="" id="LoginForm" required >
                 <label class="form-check-label" for="form1Example3"> Remember password </label>
               </div>
+
+              <p class="text-center text-muted  mb-0 pt-2 my-2">No account? <a
+                href="{% url 'account' %}" class="fw-bold text-body"><u>sign_up
+                  here</u></a></p>
+                  <br>
   
               <button class="btn btn-success btn-lg btn-block" type="submit" name='login' >Login</button>
   

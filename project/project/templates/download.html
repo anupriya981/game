@@ -1,9 +1,5 @@
-m {% load static %}
-{% for game in games %}
-<div>
-    <h3>{{ game.name game.pk }}</h3>
-    <img src="{ game.img }">
-    <p>category:{{ game.category }}</p>
-    <a href="{% urls 'download' games_id %}">download</a>
-</div>
-{% endfor %}
+{% block content %}
+
+{% include 'download_container.html' %}
+
+{% endblock content %}
