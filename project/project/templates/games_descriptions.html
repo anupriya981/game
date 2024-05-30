@@ -23,11 +23,11 @@
                 <h3 class=" pt-5 my-5" style="color: rgb(3, 112, 27);"><i>{{ games.game }}</i></h3>
                 <i>{{ games.description}}</i><br><br>
 
-                <form method='post' action="{% url 'downloads' %}" enctype='multipart/form-data'>
+                <form method='post' enctype='multipart/form-data'>
                     {% csrf_token %}
 
-                <input type='hidden'  value='{{games.pk}}'name='games_id'>
-                <a href='' class='btn btn-success' type='submit' name='download'>Download</a>
+                <input type='hidden'  value='{{games.pk}}' name='games_id'>
+                <a href="../downloads/history/{{games.pk}}" class='btn btn-success' name='download'>Download</a>
             </div>
                 {% block content %}
                 {% include "home_page_lay.html"%}

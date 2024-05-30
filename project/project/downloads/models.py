@@ -18,7 +18,8 @@ class history(models.Model):
         (HISTORY,'history'),
         )
     download_status = models.IntegerField(choices=STATUS_CHOICE, default=DOWNLOAD_STAGE)
-    games_id=models.IntegerField()
+    games_id=models.ForeignKey(games,related_name='downloaded_history',on_delete=models.SET_NULL,null=True)
+    
     owner = models.ForeignKey(customer,on_delete=models.SET_NULL, null=True, related_name='downloaded')
     delete_status = models.IntegerField(choices=DELETE_CHOICE,default=LIVE)
     create_at = models.DateTimeField(auto_now_add=True)
