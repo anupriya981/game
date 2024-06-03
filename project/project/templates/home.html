@@ -1,8 +1,8 @@
 {% load static %}
-<div class='header'>
     <div class="container-fluid">
-        <div class="container">
-        <div class="row">
+        <div class='header'>
+         <div class="container">
+          <div class="row">
             <div class="col">
                 <nav class="nav">
                     <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
@@ -16,17 +16,26 @@
                     <a class="nav-link"  href="{% url  'downloads' %}">history</a>
                         <a class="nav-link" href="{% url 'logout' %}">logout</a>
                     {% endif %}
+
+                        {% comment %} <button type="submit"  class='btn-info btn-sm'></button> {% endcomment %}
                 </nav>
             </div>
-        </div></div></div>   
-        <div class="container-fluid">
+           </div>
+          </div>   
+            <div class="container-fluid">
             <div class="row">
-                <div class="col-6-md">
-                      <img src="{% static 'images/baground_color/gamezz.webp' %}" style="width: 1325px;" height="550px" >
-    {% block content %}
-    {% include 'home_page_lay.html' %}
-    {% endblock content %} 
-</div></div>
+                <div class="col">
+                      <img src="{% static 'images/baground_color/gamezz.webp' %}" style="width: 1301px;" height="550px" >
+                      {% block content %}
+
+                      {% include 'home_page_lay.html' %}
+                      
+                      {% endblock content %} 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
 

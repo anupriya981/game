@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from . models import games
 from django.contrib.auth.decorators import login_required
+from django.db.models.functions import Lower
 
 def Home(request):
     print(request.user)
@@ -27,38 +28,21 @@ def detail_games(request,p):
     context={'games':game}
     return render(request, 'games_details.html')
 
-# def description(request):
-#     return render(request, 'games_description_car.html')
-
-# def description_bird(request):
-#     return render(request, 'game_descr_bird.html')
-
-# def description_cand(request):
-#     return render(request, 'game_descr_cand.html')
-
-# def description_sub(request):
-#     return render(request, 'game_des_sub.html')
-
-# def description_ludo(request):
-#     return render(request, 'game_des_ludo.html')
-
-# def description_mario(request):
-#     return render(request, 'game_des_mario.html')
-
-# def description_motor(request):
-#     return render(request, 'game_des_motor.html')
-
-# def description_gtav(request):
-#     return render(request, 'game_des_gta.html')
-
-
 @login_required(login_url = 'login/')
 def game_list(request):
     g=games.objects.all()
     context={'games':g}
     return render(request, 'games_list_page.html',context)
 
+def search_venues(request):
+    query = request.GET.get('q')
+    if query:
+        results = games.objects.filter(game=query)
+        results = games.objects.annotate(lower_game=Lower('game')).filter(lower_game__icontains=query.lower())
 
+    else:
+         results = games.objects.none()  
+    return render(request, 'search_venues.html', {'results': results})
 
 
 
