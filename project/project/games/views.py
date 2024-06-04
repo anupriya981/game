@@ -28,7 +28,7 @@ def detail_games(request,p):
     context={'games':game}
     return render(request, 'games_details.html')
 
-@login_required(login_url = 'login/')
+@login_required(login_url="login/")
 def game_list(request):
     g=games.objects.all()
     context={'games':g}
