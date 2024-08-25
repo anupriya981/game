@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container-fluid ">
-        <div class='row '  style="background-color: rgb(243, 189, 248);"> 
+        <div class='row ' > 
             <div class='col 'style="text-align:center; "> 
                 <nav class="nav">
                     <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
@@ -28,18 +28,17 @@
                         <input class="form-control-sm" type="search" name="q"  placeholder="Search..." aria-label="Search">
                     </form>
                 </nav>
-            {% for games_chunks in games|chunks:3 %}
-                <div class="row" style="background-color:  rgb(243, 189, 248)" >
-                {% comment %} style="background-image: url('{% static 'images/baground_color/try3.png' %}');"> {% endcomment %}
-                    {% for game in games_chunks %}          
-                        <div class="col-4 img pt-4 my-4">  
-                            <a href="{% url 'games' game.pk %}"><img src="{{ game.img.url }}" style=" width:220px;"></a>
+            {% comment %} {% for games_chunks in games|chunks:3 %} {% endcomment %}
+                <div class="row">
+                    {% for game in games %}          
+                        <div class="col-3 img pt-4 my-4">  
+                            <a href="{% url 'games' game.pk %}"><img src="{{ game.img.url }}" style=" width:100px;"></a>
                             <h4>{{ game.game }}</h4>
                             <p>{{ game.category }}</p>
                         </div> 
                     {% endfor %}
                 </div>   
-            {% endfor %}
+            {% comment %} {% endfor %} {% endcomment %}
             </div>
         </div>
     </div>

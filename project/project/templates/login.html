@@ -12,7 +12,7 @@
   {% block content %}
  <form id='LoginForm' method="post" enctype="multipart/form-data" >
   {% csrf_token %}
-  <section class="vh-100 bg-image"  style="background-image: url('{% static 'images/game.jpg' %}');height: 500px;"> 
+  <section class="vh-100 bg-image"  style="background-image: url('{% static 'images/game.jpg' %}');width:100%;"> 
   {% if messages %}
     <div class="message-container">
       {% for message in messages %}
@@ -25,25 +25,19 @@
           <div class="card shadow-2-strong" style="border-radius: 1rem;">
             <div class="card-body text-center">
   
-              <h3 class="mb-5">Sign in</h3>
+              <h3 class="mb-3">Sign in</h3>
   
               <div class="form-outline ">
                 <input type="username" id="text" class="form-control form-control-lg" required name="username" placeholder='Username' >
-                {% comment %} <label class="form-label" for="text-2">Username</label> {% endcomment %}
-              </div>
-  
-              <div class="form-outline pt-3 my-3 ">
+
                 <input type="password" id="typePasswordX-2" class="form-control form-control-lg" required name="password" maxlength='8' minlength='6' placeholder='Password'>
-                {% comment %} <label class="form-label" for="typePasswordX-2">Password</label> {% endcomment %}
-              </div>
-  
-              <!-- Checkbox -->
+
               <div class="form-check d-flex justify-content-start pt-2 my-2 ">
                 <input class="form-check-input" type="checkbox" value="" id="LoginForm" required >
                 <label class="form-check-label" for="form1Example3"> Remember password </label>
               </div>
 
-              <p class="text-center text-muted  mb-0 pt-2 my-2">No account? <a
+              <p class="text-center text-muted  mb-0 ">No account? <a
                 href="{% url 'account' %}" class="fw-bold text-body"><u>sign_up
                   here</u></a></p>
                   <br>
@@ -57,15 +51,6 @@
   </section>
 </form>
 
-{% if Register %}
-{% comment %} <script>
-	Register()
-</script>
-{% else %} {% endcomment %}
-<script>
-	login()
-</script>
-{% endif %}
 
 {% endblock content %}
 
