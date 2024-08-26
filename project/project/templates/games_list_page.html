@@ -12,33 +12,31 @@
 <body>
     <div class="container-fluid ">
         <div class='row ' > 
-            <div class='col 'style="text-align:center; "> 
+            <div class='col 'style="text-align:center; background-color:dark; color:white;  "> 
                 <nav class="nav">
-                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    <a class="nav-link active" style="color: rgb(3, 15, 26);" aria-current="page" href="{% url 'home' %}">Home</a>
                     {% if not user.is_authenticated %}
-                    <a class="nav-link" href="">List Games</a>
-                    <a class="nav-link"  href="">history</a>
-                    <a class="nav-link" href="{% url 'account' %}">signup</a>
+                    <a class="nav-link" style="color: rgb(3, 15, 26);" href="">List Games</a>
+                    <a class="nav-link" style="color: rgb(3, 15, 26);" href="">history</a>
+                    <a class="nav-link" style="color: rgb(3, 15, 26);" href="{% url 'account' %}">signup</a>
                     {% else %}
-                    <a class="nav-link" href="{% url 'games_list_page' %}">List Games</a>
-                    <a class="nav-link"  href="{% url  'downloads' %}">history</a>
-                        <a class="nav-link" href="{% url 'logout' %}">logout</a>
+                    <a class="nav-link" style="color: rgb(3, 15, 26);" href="{% url 'games_list_page' %}">List Games</a>
+                    <a class="nav-link" style="color: rgb(3, 15, 26);" href="{% url  'downloads' %}">history</a>
+                        <a class="nav-link" style="color: rgb(3, 15, 26);" href="{% url 'logout' %}">logout</a>
                     {% endif %}
-                    <form class="d-flex" action="{% url 'search' %}" method="get">
+                    <form class="d-flex text-align: right;" action="{% url 'search' %}" method="get">
                         <input class="form-control-sm" type="search" name="q"  placeholder="Search..." aria-label="Search">
                     </form>
                 </nav>
-            {% comment %} {% for games_chunks in games|chunks:3 %} {% endcomment %}
-                <div class="row">
+                <div class="row" style="background-color: #0a0e21; ">
                     {% for game in games %}          
-                        <div class="col-3 img pt-4 my-4">  
+                        <div class="col-3 img pt-4 my-4 ;color:white;">  
                             <a href="{% url 'games' game.pk %}"><img src="{{ game.img.url }}" style=" width:100px;"></a>
                             <h4>{{ game.game }}</h4>
                             <p>{{ game.category }}</p>
                         </div> 
                     {% endfor %}
                 </div>   
-            {% comment %} {% endfor %} {% endcomment %}
             </div>
         </div>
     </div>

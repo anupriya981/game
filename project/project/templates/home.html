@@ -5,17 +5,17 @@
           <div class="row">
             <div class="col">
                 <nav class="nav">
-                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    <a class="nav-link active"  style="color: rgb(3, 15, 26);" aria-current="page" href="{% url 'home' %}">Home</a>
                     {% if not user.is_authenticated %}
                     {% comment %} <a class="nav-link" href="">List Games</a>
                     <a class="nav-link"  href="">history</a> {% endcomment %}
-                    <a class="nav-link" href="{% url 'games_list_page' %}">List Games</a>
-                    <a class="nav-link" href="{% url 'account' %}">signup</a>
+                    <a class="nav-link" style="color: rgb(3, 15, 26);"  href="{% url 'games_list_page' %}">List Games</a>
+                    <a class="nav-link" style="color: rgb(3, 15, 26);"  href="{% url 'account' %}">signup</a>
                         
                     {% else %}
-                    <a class="nav-link" href="{% url 'games_list_page' %}">List Games</a>
-                    <a class="nav-link"  href="{% url  'downloads' %}">history</a>
-                        <a class="nav-link" href="{% url 'logout' %}">logout</a>
+                    <a class="nav-link" style="color: rgb(3, 15, 26);"  href="{% url 'games_list_page' %}">List Games</a>
+                    <a class="nav-link"  style="color: rgb(3, 15, 26);"  href="{% url  'downloads' %}">history</a>
+                        <a class="nav-link" style="color: rgb(3, 15, 26);"  href="{% url 'logout' %}">logout</a>
                     {% endif %}
 
                         {% comment %} <button type="submit"  class='btn-info btn-sm'></button> {% endcomment %}
