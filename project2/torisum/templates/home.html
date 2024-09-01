@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+ 
+<div class="container-fluid">
+  <div class='nav'>
+    <h6><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a></h6>
+    <h6><a class="nav-link" href="{% url 'registration' %}">Signup</a></h6>
+    <h6><a class="nav-link" href="{% url 'login' %}">Login</a></h6>
+    {% if user.is_authenticated %}
+    <h6><a class="nav-link" href="{% url 'logout' %}">Logout</a></h6>
+    {% endif %}
+  </div>
+{% for item in bg_img %}
+<img src="{{ item.bg_img.url }}" alt="" style="width:100%; ">
+                            
+{% endfor %}
+    <div class="row  justify-content-md-center">
+      <div class="col pt-3 my-3" style="text-align: center;" >
+            <h2>Most Popular Destination</h2>
+            <p>Choose from over 1.2 million hotels in more than 200 countries, 30 million real guest reviews.<br> Book flights to over 5000 destinations worldwide.</p>
+      </div>
+    </div>
+
+<div class="row " style=" text-align: center; ">
+  {% for items in details %}
+  <div class="col-4 pt-2 my-3">
+    <a href="{% url 'tra_des' items.id  %}"> <img src="{{ items.des_img.url }}" style="height:250px; width:260px; text-align: center; "></a>
+      {% comment %} <p>{{items.des_place}}</p> {% endcomment %}
+      {% comment %} <i><small>{{items.place_descrip}}</small> {% endcomment %}
+      {% comment %} &#8377;67689{{ item.price }}</i> {% endcomment %}
+    </div>
+  {% endfor %}
+  </div>
+</div>
+
+<div class="container-fluid " style=" background-color: rgb(35, 110, 81);color:black;">
+  <div class="row justify-content-md-center" style="text-align: center;">
+    <div class="col-lg-8 pt-3 my-3 ">
+      <h1>How It Work</h1>
+      <P>Explore Thomas Cook Tours and Travels and get best deals on Domestic & International tour packages, Flights, Hotels & Foreign Exchange.</P>
+      <div class="row" style="text-align: center;">
+        {% for traveler in travels %} 
+          <div class="col-4 center" style="text-align:center;" >
+             <img src=" {{ traveler.tra_img.url }}" alt=""style="width:110px; text-align:center;"><br>
+              {{ traveler.tra_des }}           
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-md-center" style=" text-align: center; ">
+  {% for item in bg_img %}
+    <img src="{{ item.bg_img2.url }}" alt="" style="width:100%; " >
+  {% endfor %}
+</div>
+
+<div class="container-fluid " >
+  <div class="row justify-content-md-center"  style="text-align: center;">
+    <div class="col-lg-8 pt-3 my-3 ">
+      <h2>OUR ACHIVEMENTS</h2>
+      <p>For over 23 years, we've been on a mission to make unexpected travel mishaps and emergencies less stressful for travelers. Our travel insurance plans can provide you with financial compensation, access to quality healthcare, and 24/7 emergency travel assistance to guide you through the unexpected as you explore the world.</p>
+    </div>
+      <div class-'row' style="text-align: center;">
+        <div class='col lg-3 pt-3 my-3'>
+          <img src="../static/faceb.webp" href="https://www.facebook.com/VisitSaudi" alt="facebook icon" style="width:60px;">
+
+          <img src="../static/insta.png" herf="https://www.youtube.com/channel/UCmFRhhc6Gt8b4bSUmTzNIoA" alt="insta icon" style="width:60px;">
+  
+          <img src="../static/twiter.png" href="https://www.twitter.com" alt="twiter icon" style="width:60px;">
+
+      </div>
+    </div>
+<div class="row">
+  <div class="col-lg-12 pt-3 my-3" style="background-color:rgb(98, 197, 197);">
+    <h1>subcribe</h1>
+    <p> you can subceribe for paid preminum service and features on certain apps with gooogle pay,
+      try preeminum with wonderfull offer you had
+      u need to contat with us and have wonderfull offer if youn are couples..
+    </p>
+    <button type="subcribe" class="btn btn-outline-success btn-lg" name="subscribe" style="width:120px;">subscribe</button>
+    <button type="forewared" class="btn btn-outline-primary btn-lg" name="forewared" style="width:120px;">forewared</button>
+  </div>
+
+
+</div>
+
+    </div>
+  </div>  
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>  
+</html>
