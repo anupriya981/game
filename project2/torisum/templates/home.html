@@ -8,13 +8,14 @@
 </head>
 <body>
  
-<div class="container-fluid">
+  <div class="container-fluid">
   <div class='nav'>
-    <h6><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a></h6>
-    <h6><a class="nav-link" href="{% url 'registration' %}">Signup</a></h6>
-    <h6><a class="nav-link" href="{% url 'login' %}">Login</a></h6>
+    <h6><a class="nav-link active" style="color:Black;" aria-current="page" href="{% url 'home' %}">Home</a></h6>
+    <h6><a class="nav-link" style="color:Black;" href="{% url 'registration' %}">Signup</a></h6>
+    <h6><a class="nav-link" style="color:Black;" href="{% url 'login' %}">Login</a></h6>
     {% if user.is_authenticated %}
-    <h6><a class="nav-link" href="{% url 'logout' %}">Logout</a></h6>
+    <h6><a class="nav-link" style="color:Black;" href="{% url 'logout' %}">Logout</a></h6>
+    {% comment %} <h6><a class="nav-link" style="color:Black;" href="{% url 'page' %}">page</a></h6> {% endcomment %}
     {% endif %}
   </div>
 {% for item in bg_img %}
@@ -79,19 +80,17 @@
 
       </div>
     </div>
-<div class="row">
-  <div class="col-lg-12 pt-3 my-3" style="background-color:rgb(98, 197, 197);">
-    <h1>subcribe</h1>
-    <p> you can subceribe for paid preminum service and features on certain apps with gooogle pay,
-      try preeminum with wonderfull offer you had
-      u need to contat with us and have wonderfull offer if youn are couples..
-    </p>
-    <button type="subcribe" class="btn btn-outline-success btn-lg" name="subscribe" style="width:120px;">subscribe</button>
-    <button type="forewared" class="btn btn-outline-primary btn-lg" name="forewared" style="width:120px;">forewared</button>
-  </div>
-
-
-</div>
+    <div class="row">
+      <div class="col-lg-12 pt-3 my-3" style="background-color:rgb(98, 197, 197);">
+        <h1>subcribe</h1>
+        <p> you can subceribe for paid preminum service and features on certain apps with gooogle pay,
+          try preeminum with wonderfull offer you had
+          u need to contat with us and have wonderfull offer if youn are couples..
+        </p>
+        <button type="subcribe" class="btn btn-outline-success btn-lg" name="subscribe" style="width:120px;">subscribe</button>
+        <button type="forewared" class="btn btn-outline-primary btn-lg" name="forewared" style="width:120px;">forewared</button>
+      </div>
+    </div>
 
     </div>
   </div>  

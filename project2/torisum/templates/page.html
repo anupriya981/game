@@ -35,7 +35,6 @@
     .column {
       float: left;
       width: 18.33%;    
-      padding:20px;
     } 
 
     .column:hover {
@@ -50,28 +49,20 @@
     <h6><a class="nav-link" style="color:Black;" href="{% url 'logout' %}">Logout</a></h6>
   </div>
 
-  <div class="responsive ">
-    <div class="col-lg-12 img ">
-      <img src="{{ instane.des_img2.url }}" style="width: 100%;">
-      <h1 style="text-align: center; color: DarkGreen;">{{instane.des_place}}</h1>    
-        <p style="text-align: left;  padding:20px;">{{instane.place_descrip}}</i>    
-        </div>
-  </div>
-
 <h1 style="  font-size: 40px ; font-family: cursive; text-align: center; color:navy;"> Explore In Paries..</h1>
   <div class="row lg-12 pt-2 my-2 ">
-    {% for inst in instane2 %}
-    <div class="column pt-2 my-2 " style="animation-play-state:running;padding:20px;">
+
+  {% for ins in instane %}
+    <div class="column " style="animation-play-state:running;">
       <div class="content ">
-       <img src="{{ inst.img_visit.url }}" 
+       <img src="{{ ins.img_visit.url }}" 
          style="width: 100%;">       
-         <i style="font-style: oblique; font-size:10px;line-height:1;">{{inst.name_visit}}
-         <a href="{% url 'place_descri' inst.id %}" style="color:Black;">more...</a>  </i>
+         <i style="font-style: oblique; font-size:10px;line-height:1;">{{ins.name_visit}}  </i>
+         
        </div>
      </div>
-     {% endfor %}
-     
-
+    {% endfor %}
+  {% comment %} <div class="row" style=" padding:10px;"> {% endcomment %}
     <div class="col-lg-12 pt-3 my-3" style="background-color:LightYellow; text-align:center;">
       <h1>subcribe</h1>
       <p> you can subceribe for paid preminum service and features on certain apps with gooogle pay,

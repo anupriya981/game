@@ -6,6 +6,7 @@ from django.contrib import messages
 from .models import Dest_img
 from .models import Destination_details
 from .models import Travellers
+from .models import VisitPlace
 from django.contrib import auth
 
 # Create your views here.
@@ -72,5 +73,13 @@ def Logout(request):
 
 def Tra_des(request,pk):
     instance = Destination_details.objects.get(pk=pk)
+    instance2 = VisitPlace.objects.all()
+    return render(request, 'traveler_descri.html', {'instane':instance, 'instane2':instance2})
 
-    return render(request, 'traveler_descri.html', {'instane':instance})
+def Place_descri(request,pk):
+    instance = VisitPlace.objects.get(pk=pk)
+    return render(request, 'place_descri.html', {'instane':instance})
+
+# def Page(request):
+#     instance = VisitPlace.objects.all()
+#     return render(request, 'page.html',{'instane':instance})

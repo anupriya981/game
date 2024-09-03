@@ -7,4 +7,6 @@ urlpatterns = [
     path('login',views.Login,name='login'),
     path('logout',views.Logout,name='logout'),
     path('tra_des/<pk>',views.Tra_des, name='tra_des'),
-]
+    path('place_descri/<pk>',views.Place_descri,name="place_descri"),
+    # path('page',views.Page,name="page"),
+    ]
