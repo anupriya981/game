@@ -1,12 +1,12 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
-from . models import register
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from .models import Dest_img
 from .models import Destination_details
 from .models import Travellers
 from .models import VisitPlace
+from .forms import FormData
 from django.contrib import auth
 
 # Create your views here.
@@ -77,9 +77,20 @@ def Tra_des(request,pk):
     return render(request, 'traveler_descri.html', {'instane':instance, 'instane2':instance2})
 
 def Place_descri(request,pk):
-    instance = VisitPlace.objects.get(pk=pk)
-    return render(request, 'place_descri.html', {'instane':instance})
+    # instance = VisitPlace.objects.all()
+    # instances = Destination_details.objects.all()
+    instances = Destination_details.objects.filter(pk=pk)
+    return render(request, 'place_descri.html', {'instances':instances})
 
 # def Page(request):
 #     instance = VisitPlace.objects.all()
 #     return render(request, 'page.html',{'instane':instance})
+def Formpage(request):
+    if request.method == 'POST':
+        frm = FormData(request.POST)
+        if frm.is_valid():
+            frm.save()
+            return redirect('/')
+    else:
+        frm = FormData()
+    return render(request, 'formpage.html', {'frm':frm})
